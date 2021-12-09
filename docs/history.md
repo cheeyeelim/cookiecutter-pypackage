@@ -1,5 +1,9 @@
 # History
 
+## v1.1.2
+
+* Fixed CHANGELOG format to let mindsers/changelog-reader-action recognise version number correctly
+
 ## v1.1.1
 
 * Centralize most of the tool configuration in the `setup.cfg` file
