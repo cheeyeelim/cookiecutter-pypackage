@@ -6,6 +6,7 @@
 * Update mkdocs version
 * mkdocs - added light/dark mode toggle, navigation improvements
 * mike - multiple documentation versions support
+* Update and clean up documentations
 
 ## v1.1.1
 
