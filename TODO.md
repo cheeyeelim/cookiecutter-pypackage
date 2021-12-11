@@ -7,5 +7,5 @@
 
 ## To modify
 
-1. Move `CONTRIBUTING.rst` into markdown format under `docs`.
+1. [DONE] Move `CONTRIBUTING.rst` into markdown format under `docs`.
 2. Update `tox` to test documentation building with mike
