@@ -3,6 +3,8 @@
 ## v1.1.2
 
 * Fixed CHANGELOG format to let mindsers/changelog-reader-action recognise version number correctly
+* Update mkdocs version
+* mkdocs - added light/dark mode toggle, navigation improvements
 
 ## v1.1.1
 

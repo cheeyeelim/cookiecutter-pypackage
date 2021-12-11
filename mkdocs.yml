@@ -20,7 +20,7 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-    - scheme: slate # 
+    - scheme: slate
       primary: lime
       accent: pink
       toggle:
@@ -30,6 +30,8 @@ theme:
     - navigation.indexes
     - navigation.instant
     - navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.top
 
 markdown_extensions:
   - pymdownx.highlight:
