@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://cheeyeelim.github.io/cookiecutter-pypackage/1.1/</loc>
+         <lastmod>2021-12-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cheeyeelim.github.io/cookiecutter-pypackage/1.1/console_script_setup/</loc>
+         <lastmod>2021-12-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cheeyeelim.github.io/cookiecutter-pypackage/1.1/faq/</loc>
+         <lastmod>2021-12-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cheeyeelim.github.io/cookiecutter-pypackage/1.1/history/</loc>
+         <lastmod>2021-12-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cheeyeelim.github.io/cookiecutter-pypackage/1.1/pypi_release_checklist/</loc>
+         <lastmod>2021-12-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://cheeyeelim.github.io/cookiecutter-pypackage/1.1/tutorial/</loc>
+         <lastmod>2021-12-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
