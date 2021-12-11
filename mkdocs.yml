@@ -7,6 +7,7 @@ nav:
   - Tutorial: tutorial.md
   - Console script: console_script_setup.md
   - Release checklist: pypi_release_checklist.md
+  - Contributing: contributing.md
   - FAQ: faq.md
   - History: history.md
 
