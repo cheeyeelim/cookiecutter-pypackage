@@ -55,9 +55,3 @@ jobs:
           git fetch origin gh-pages --depth=1
           poetry run mike deploy --push --update-aliases ${RELEASE_TAG_VERSION} latest
           poetry run mike set-default --push latest
-
-      - name: publish documentation
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./site
