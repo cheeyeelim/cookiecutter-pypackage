@@ -64,3 +64,5 @@ extra:
       name: Github
     - icon: material/email
       link: "mailto:{{ cookiecutter.email }}"
+  version:
+    provider: mike

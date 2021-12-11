@@ -58,3 +58,5 @@ extra:
   analytics:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_TAG
+  version:
+    provider: mike

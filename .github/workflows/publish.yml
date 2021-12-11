@@ -37,12 +37,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
 
+      - name: Set release notes tag
+        run: |
+          export RELEASE_TAG_VERSION=${{ github.event.release.tag_name }}
+          echo "RELEASE_TAG_VERSION=${RELEASE_TAG_VERSION:1}" >> $GITHUB_ENV
+
+      - name: Setup doc deploy git user
+        run: |
+          git config --global user.name ci-bot
+          git config --global user.email ci-bot@dummy.com
+
       - name: build documentation
         env:
           GOOGLE_ANALYTICS_TAG: ${{ secrets.GOOGLE_ANALYTICS_TAG }}
         run: |
           poetry install -E dev
-          poetry run mkdocs build
+          poetry run mike deploy --push --update-aliases ${RELEASE_TAG_VERSION} latest
 
       - name: publish documentation
         uses: peaceiris/actions-gh-pages@v3
