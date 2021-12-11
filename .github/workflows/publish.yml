@@ -38,6 +38,8 @@ jobs:
           pip install poetry
 
       - name: build documentation
+        env:
+          GOOGLE_ANALYTICS_TAG: ${{ secrets.GOOGLE_ANALYTICS_TAG }}
         run: |
           poetry install -E dev
           poetry run mkdocs build
