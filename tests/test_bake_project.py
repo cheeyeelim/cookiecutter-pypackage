@@ -1,6 +1,4 @@
-import datetime
 import os
-import shlex
 import subprocess
 import sys
 from contextlib import contextmanager
@@ -8,7 +6,6 @@ from typing import List
 from pathlib import Path
 
 import pytest
-from cookiecutter.utils import rmtree
 
 # logging.basicConfig(level=logging.DEBUG)
 
