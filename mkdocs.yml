@@ -51,6 +51,7 @@ plugins:
   - include-markdown
   - search:
       lang: en
+  - git-revision-date
 extra:
   social:
     - icon: fontawesome/brands/github
