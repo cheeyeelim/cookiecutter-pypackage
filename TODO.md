@@ -9,3 +9,4 @@
 
 1. [DONE] Move `CONTRIBUTING.rst` into markdown format under `docs`.
 2. [DONE] Update `tox` to test documentation building with mike
+3. [DONE] Remove support for py36. Only support py37, py38, py39
