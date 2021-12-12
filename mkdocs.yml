@@ -9,7 +9,7 @@ nav:
   - Release checklist: pypi_release_checklist.md
   - Contributing: contributing.md
   - FAQ: faq.md
-  - History: history.md
+  - Changelog: changelog.md
 
 theme:
   name: material

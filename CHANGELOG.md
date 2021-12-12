@@ -1,6 +1,11 @@
-# History
+# Changelog
 
-## v1.1.2
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.1.2] - 2021-12-12
 
 * Fixed CHANGELOG format to let mindsers/changelog-reader-action recognise version number correctly
 * Updated mkdocs version
@@ -12,15 +17,15 @@
 * Updated and cleaned up documentations
 * Removed support for py36
 
-## v1.1.1
+## [1.1.1] - 2021-10-18
 
 * Centralize most of the tool configuration in the `setup.cfg` file
 
-## v1.1.0
+## [1.1.0] - 2021-10-15
 
 * Add `use_mypy` choice to make mypy optional
 
-## v1.0
+## [1.0.1] - 2021-04-22
 ***first release with the following features:***
 
 * [Poetry](https://python-poetry.org/): Manage dependency, build and release
