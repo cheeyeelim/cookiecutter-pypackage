@@ -3,10 +3,13 @@
 ## v1.1.2
 
 * Fixed CHANGELOG format to let mindsers/changelog-reader-action recognise version number correctly
-* Update mkdocs version
+* Updated mkdocs version
 * mkdocs - added light/dark mode toggle, navigation improvements
-* mike - multiple documentation versions support
-* Update and clean up documentations
+* mike - added multiple documentation versions support
+* tox - added conda support (for multiple python versions)
+* Replaced testing with mike, rather than mkdocs
+* Updated and cleaned up documentations
+* Removed support for py36
 
 ## v1.1.1
 
