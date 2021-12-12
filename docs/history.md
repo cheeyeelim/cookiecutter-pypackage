@@ -8,6 +8,7 @@
 * mike - added multiple documentation versions support
 * tox - added conda support (for multiple python versions)
 * Replaced testing with mike, rather than mkdocs
+* Updated tests to remove warnings from `pytest-cookies`
 * Updated and cleaned up documentations
 * Removed support for py36
 
