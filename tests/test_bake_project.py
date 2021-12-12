@@ -13,17 +13,9 @@ from cookiecutter.utils import rmtree
 
 
 _DEPENDENCY_FILE = "pyproject.toml"
-_INSTALL_DEPS_COMMANDS = [
-    "poetry install",
-]
+
 
 # (A) Helper functions
-
-def build_commands(commands):
-    cmds = _INSTALL_DEPS_COMMANDS.copy()
-    cmds.extend(commands)
-    return cmds
-
 
 @contextmanager
 def inside_dir(dirpath):
@@ -50,24 +42,7 @@ def bake_in_temp_dir(cookies, *args, **kwargs):
     try:
         yield result
     finally:
-        rmtree(str(result.project))
-
-
-def run_inside_dir(commands, dirpath):
-    """
-    Run a command from inside a given directory, returning the exit status
-    :param commands: Commands that will be executed
-    :param dirpath: String, path of the directory the command is being run.
-    """
-    with inside_dir(dirpath):
-        for command in commands:
-            subprocess.check_call(shlex.split(command))
-
-
-def check_output_inside_dir(command, dirpath):
-    """Run a command from inside a given directory, returning the command output"""
-    with inside_dir(dirpath):
-        return subprocess.check_output(shlex.split(command))
+        rmtree(str(result.project_path))
 
 
 def execute(command: List[str], dirpath: str, timeout=30, supress_warning=True):
@@ -94,7 +69,7 @@ def execute(command: List[str], dirpath: str, timeout=30, supress_warning=True):
 
 def project_info(result):
     """Get toplevel dir, project_slug, and project dir from baked cookies"""
-    project_path = str(result.project)
+    project_path = str(result.project_path)
     project_slug = os.path.split(project_path)[-1]
     project_dir = os.path.join(project_path, project_slug.replace('-', '_'))
     return project_path, project_slug, project_dir
