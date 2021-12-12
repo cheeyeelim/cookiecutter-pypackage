@@ -8,4 +8,4 @@
 ## To modify
 
 1. [DONE] Move `CONTRIBUTING.rst` into markdown format under `docs`.
-2. Update `tox` to test documentation building with mike
+2. [DONE] Update `tox` to test documentation building with mike
