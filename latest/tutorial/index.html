@@ -600,11 +600,9 @@
 <summary>Note</summary>
 <p>Did you find this article confusing? <a href="https://github.com/cheeyeelim/cookiecutter-pypackage/blob/master/docs/tutorial.md">Edit this file</a> and pull a request!</p>
 </details>
-<p>To start with, you will need <a href="https://github.com/">GitHub</a>, <a href="https://pypi.org">PyPI</a>, <a href="https://test.pypi.org/">TestPyPI</a> and <a href="https://codecov.io/">Codecov</a> account. If
-you don't have one, please follow the links to apply one before you get started on this
-tutorial.</p>
-<p>If you are new to Git and GitHub, you should probably spend a few minutes on
-some tutorials at the top of the page at <a href="https://help.github.com/">GitHub Help</a>.</p>
+<p>To start with, you will need <a href="https://github.com/">GitHub</a>, <a href="https://pypi.org">PyPI</a>, <a href="https://test.pypi.org/">TestPyPI</a> and <a href="https://codecov.io/">Codecov</a> accounts. If
+you don't have one, please follow the links to apply one before you get started on this tutorial.</p>
+<p>If you are new to Git and GitHub, you should probably spend a few minutes on some tutorials at the top of the page at <a href="https://help.github.com/">GitHub Help</a>.</p>
 <h3 id="step-1-install-cookiecutter">Step 1: Install Cookiecutter<a class="headerlink" href="#step-1-install-cookiecutter" title="Permanent link">&para;</a></h3>
 <p>Install cookiecutter:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip install cookiecutter
@@ -616,8 +614,7 @@ some tutorials at the top of the page at <a href="https://help.github.com/">GitH
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>cookiecutter https://github.com/cheeyeelim/cookiecutter-pypackage.git
 </code></pre></div>
 </td></tr></table>
-<p>Finally, a new folder will be created under current folder, the name is the answer you
-provided to <code>project_slug</code>.</p>
+<p>Finally, a new folder will be created under current folder, the name is the answer you provided to <code>project_slug</code>.</p>
 <p>Go to this generated folder, the project layout should look like:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -650,8 +647,7 @@ provided to <code>project_slug</code>.</p>
 <span class="normal">29</span>
 <span class="normal">30</span>
 <span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>.
+<span class="normal">32</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>.
 ├── .bumpversion.cfg
 ├── .editorconfig
 ├── .github
@@ -663,7 +659,6 @@ provided to <code>project_slug</code>.</p>
 ├── .gitignore
 ├── .pre-commit-config.yaml
 ├── CHANGELOG.md
-├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
 ├── docs
@@ -697,8 +692,7 @@ provided to <code>project_slug</code>.</p>
 poetry isolated from the rest of your system by vendorizing its dependencies.
 This is the recommended way of installing poetry.</p>
 <h3 id="step-4-install-dev-requirements">Step 4: Install Dev Requirements<a class="headerlink" href="#step-4-install-dev-requirements" title="Permanent link">&para;</a></h3>
-<p>You should still be in the folder named as <code>project_slug</code>, which containing the
- <code>pyproject.toml</code> file.</p>
+<p>You should still be in the folder named as <code>project_slug</code>, which containing the <code>pyproject.toml</code> file.</p>
 <p>Install the new project's local development requirements with <code>poetry install</code>:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>poetry install -E doc -E dev -E <span class="nb">test</span>
@@ -720,14 +714,13 @@ might not be shipped.</p>
 </details>
 <details class="tips">
 <summary>Tips</summary>
-<p>if you found erros like the following during tox run:
+<p>If you found erros like the following during tox run:
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>ERROR: InterpreterNotFound: python3.9
 </code></pre></div>
 </td></tr></table>
 don't be panic, this is just because python3.x is not found on your machine. If you
 decide to support that version of Python in your package, please install it on your
-machine. Otherwise, remove it from tox.ini and pyproject.toml (search python3.x then
-remove it).</p>
+machine if it is not automatically install by <code>tox</code> or <code>tox-conda</code>. Otherwise, remove it from tox.ini and pyproject.toml.</p>
 </details>
 <h3 id="step-5-create-a-github-repo">Step 5: Create a GitHub Repo<a class="headerlink" href="#step-5-create-a-github-repo" title="Permanent link">&para;</a></h3>
 <p>Go to your GitHub account and create a new repo named <code>my-package</code>, where
@@ -759,13 +752,25 @@ which is not required for public repos:</p>
 <p>Back to your develop environment, find the folder named after the <code>project_slug</code>.
 Move into this folder, and then setup git to use your GitHub repo and upload the
 code:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> my-package
+<details class="warning" open="open">
+<summary>Warning</summary>
+<p>It is necessary to run <code>git add</code> and <code>git commit</code> twice as the first time will install pre-commit hooks at last step.
+Then pre-commit be invoked when you run <code>git commit</code>, and some files
+may be modified by hooks. If so, please add these files and <strong>commit again</strong>.</p>
+</details>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> my-package
+
+git add .
+git commit -m <span class="s2">&quot;Initial commit.&quot;</span>
 
 git add .
 git commit -m <span class="s2">&quot;Initial commit.&quot;</span>
@@ -778,12 +783,6 @@ git push -u origin main
 repo name.</p>
 <p>You'll need a ssh key to push the repo. You can <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Generate</a> a key or
 <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Add</a> an existing one.</p>
-<details class="warning" open="open">
-<summary>Warning</summary>
-<p>if you answered 'yes' to the question if install pre-commit hooks at last step,
-then you should find pre-commit be invoked when you run <code>git commit</code>, and some files
- may be modified by hooks. If so, please add these files and <strong>commit again</strong>.</p>
-</details>
 <h4 id="check-result">Check result<a class="headerlink" href="#check-result" title="Permanent link">&para;</a></h4>
 <p>After pushing your code to GitHub, goto GitHub web page, navigate to your repo, then
 click on actions link, you should find screen like this:</p>
@@ -793,25 +792,29 @@ new artifact is published under the name <code>project_slug</code>.</p>
 <h3 id="step-8-check-documentation">Step 8. Check documentation<a class="headerlink" href="#step-8-check-documentation" title="Permanent link">&para;</a></h3>
 <p>Documentation will be published and available at <em>https://{your_github_account}.github.io/{your_repo}</em> once:</p>
 <ol>
-<li>the commit is tagged, and the tag name is started with 'v' (lower case)</li>
-<li>build/testing executed by GitHub CI passed</li>
+<li>The commit is tagged, and the tag name is started with 'v' (lower case)</li>
+<li>Build/testing executed by GitHub CI passed</li>
 </ol>
 <p>If you'd like to see what it's look like now, you could run the following command:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>poetry run mkdocs serve
 </code></pre></div>
 </td></tr></table>
 <p>This will run the builtin development server for you to preview.</p>
+<p>To build locally under <code>site</code> folder:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>poetry run mkdocs build
+</code></pre></div>
+</td></tr></table>
 <h3 id="step-9-make-official-release">Step 9. Make official release<a class="headerlink" href="#step-9-make-official-release" title="Permanent link">&para;</a></h3>
 <p>After done with your phased development in a feature branch, make a pull request, following
-  instructions at <a href="../pypi_release_checklist/">release checklist</a>, trigger first official release and check
-  result at <a href="https://pypi.org">PyPI</a>.</p>
+instructions at <a href="../pypi_release_checklist/">release checklist</a>, trigger first official release and check
+result at <a href="https://pypi.org">PyPI</a>.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      2021-12-12
+      2021-12-13
     
   </small>
 </div>

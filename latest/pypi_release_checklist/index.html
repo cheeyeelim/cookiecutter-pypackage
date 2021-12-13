@@ -499,53 +499,62 @@
 </li>
 <li>
 <p>Commit the changelog changes:</p>
-<blockquote>
+</li>
+</ol>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git add CHANGELOG.md
 git commit -m <span class="s2">&quot;Changelog for upcoming release 0.1.1.&quot;</span>
 </code></pre></div>
 </td></tr></table>
-</blockquote>
-</li>
-<li>
-<p>Update version number and automatically create a commit, tag(can also be patch or major).</p>
-<blockquote>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>poetry run bump2version minor
+<ol>
+<li>Update version number and automatically create a commit, tag(can also be patch or major).</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>poetry run bump2version patch
 </code></pre></div>
 </td></tr></table>
-</blockquote>
-</li>
-<li>
-<p>Run the tests locally for insurance:</p>
-<blockquote>
+<ol>
+<li>Run the tests locally for insurance:</li>
+</ol>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>poetry run tox
 </code></pre></div>
 </td></tr></table>
-</blockquote>
-</li>
-<li>
-<p>Push these commits to master/main:</p>
-<blockquote>
+<ol>
+<li>Push these commits to master/main:</li>
+</ol>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git push
 </code></pre></div>
 </td></tr></table>
-</blockquote>
 <p>Before proceeding to the next step, please check workflows triggered by this push have passed.</p>
-</li>
-<li>
-<p>Push the tags(created by bump2version) to master/main, creating the new release on both GitHub and PyPI:</p>
-<blockquote>
+<ol>
+<li>Push the tags(created by bump2version) to master/main, creating the new release on both GitHub and PyPI:</li>
+</ol>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git push --tags
 </code></pre></div>
 </td></tr></table>
-</blockquote>
 <p>Only tag name started with 'v'(lower case) will leverage GitHub release workflow.</p>
-</li>
-<li>
-<p>Check the PyPI listing page to make sure that the README, release
+<ol>
+<li>If there is a need to manually create tag or re-push under the same tag:</li>
+</ol>
+<p>This is delete and re-create the tag locally.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git tag -d <span class="o">{</span>tagname<span class="o">}</span>
+git tag <span class="o">{</span>tagname<span class="o">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Then follow by deleting and re-creating the tag remotely.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git push origin :<span class="o">{</span>tagname<span class="o">}</span>
+git push origin <span class="o">{</span>tagname<span class="o">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Finally update local repository with the updated tag</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git fetch --tags
+</code></pre></div>
+</td></tr></table>
+<ol>
+<li>Check the PyPI listing page to make sure that the README, release
     notes, and roadmap display properly. If tox test passed, this should be ok, since
-    we have already run twine check during tox test.</p>
-</li>
+    we have already run twine check during tox test.</li>
 </ol>
 <h3 id="about-this-checklist">About This Checklist<a class="headerlink" href="#about-this-checklist" title="Permanent link">&para;</a></h3>
 <p>This checklist is adapted from <a href="https://cookiecutter-pypackage.readthedocs.io/en/latest/pypi_release_checklist.html">https://cookiecutter-pypackage.readthedocs.io/en/latest/pypi_release_checklist.html</a>.</p>
@@ -556,7 +565,7 @@ git commit -m <span class="s2">&quot;Changelog for upcoming release 0.1.1.&quot;
   <small>
     
       Last update:
-      2021-12-12
+      2021-12-13
     
   </small>
 </div>
