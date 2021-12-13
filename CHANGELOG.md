@@ -8,13 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.2] - 2021-12-12
 
 * Fixed CHANGELOG format to let mindsers/changelog-reader-action recognise version number correctly
-* Updated mkdocs version
+* Updated mkdocs and urllib3 versions
 * mkdocs - added light/dark mode toggle, navigation improvements
 * mike - added multiple documentation versions support
 * tox - added conda support (for multiple python versions)
+* urllib3 - removed certain security vulnerabilities
 * Replaced testing with mike, rather than mkdocs
 * Updated tests to remove warnings from `pytest-cookies`
 * Updated and cleaned up documentations
+* Removed optionality for `mypy` and `pre-commit`
 * Removed support for py36
 
 ## [1.1.1] - 2021-10-18
