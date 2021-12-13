@@ -59,9 +59,8 @@ if __name__ == '__main__':
     except Exception as e:
         print(e)
 
-    if '{{ cookiecutter.install_precommit_hooks }}' == 'y':
-        try:
-            install_pre_commit_hooks()
-        except Exception as e:
-            print(str(e))
-            print("Failed to install pre-commit hooks. Please run `pre-commit install` by your self. For more on pre-commit, please refer to https://pre-commit.com")
+    try:
+        install_pre_commit_hooks()
+    except Exception as e:
+        print(str(e))
+        print("Failed to install pre-commit hooks. Please run `pre-commit install` by your self. For more on pre-commit, please refer to https://pre-commit.com")

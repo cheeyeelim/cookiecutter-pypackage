@@ -12,4 +12,4 @@
 2. [DONE] Update `tox` to test documentation building with mike (both project and template)
 3. [DONE] Remove support for py36. Only support py37, py38, py39 (both project and template)
 4. [DONE] Update test to remove warnings from `pytest-cookies` (project only)
-5. Check whether to make `mypy` non-optional. Check `mypy` vs `black`
+5. [DONE] Remove options for `mypy` and `pre-commit`
