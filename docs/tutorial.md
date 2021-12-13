@@ -3,12 +3,10 @@
 ??? Note
     Did you find this article confusing? [Edit this file] and pull a request!
 
-To start with, you will need [GitHub], [PyPI], [TestPyPI] and [Codecov] account. If
-you don't have one, please follow the links to apply one before you get started on this
-tutorial.
+To start with, you will need [GitHub], [PyPI], [TestPyPI] and [Codecov] accounts. If
+you don't have one, please follow the links to apply one before you get started on this tutorial.
 
-If you are new to Git and GitHub, you should probably spend a few minutes on
-some tutorials at the top of the page at [GitHub Help].
+If you are new to Git and GitHub, you should probably spend a few minutes on some tutorials at the top of the page at [GitHub Help].
 
 ## Step 1: Install Cookiecutter
 
@@ -28,8 +26,7 @@ Run the following command and feed with answers, If you don’t know what to ent
 cookiecutter https://github.com/cheeyeelim/cookiecutter-pypackage.git
 ```
 
-Finally, a new folder will be created under current folder, the name is the answer you
-provided to `project_slug`.
+Finally, a new folder will be created under current folder, the name is the answer you provided to `project_slug`.
 
 Go to this generated folder, the project layout should look like:
 
@@ -46,7 +43,6 @@ Go to this generated folder, the project layout should look like:
 ├── .gitignore
 ├── .pre-commit-config.yaml
 ├── CHANGELOG.md
-├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
 ├── docs
@@ -88,8 +84,7 @@ This is the recommended way of installing poetry.
 
 ## Step 4: Install Dev Requirements
 
-You should still be in the folder named as `project_slug`, which containing the
- `pyproject.toml` file.
+You should still be in the folder named as `project_slug`, which containing the `pyproject.toml` file.
 
 Install the new project's local development requirements with `poetry install`:
 
@@ -117,14 +112,13 @@ You can also activate the virtual environment manually with `poetry shell`, this
 
 ??? Tips
 
-    if you found erros like the following during tox run:
+    If you found erros like the following during tox run:
     ```
     ERROR: InterpreterNotFound: python3.9
     ```
     don't be panic, this is just because python3.x is not found on your machine. If you
     decide to support that version of Python in your package, please install it on your
-    machine. Otherwise, remove it from tox.ini and pyproject.toml (search python3.x then
-    remove it).
+    machine if it is not automatically install by `tox` or `tox-conda`. Otherwise, remove it from tox.ini and pyproject.toml.
 
 ## Step 5: Create a GitHub Repo
 
@@ -164,8 +158,17 @@ Back to your develop environment, find the folder named after the `project_slug`
 Move into this folder, and then setup git to use your GitHub repo and upload the
 code:
 
+???+ Warning
+
+    It is necessary to run `git add` and `git commit` twice as the first time will install pre-commit hooks at last step.
+    Then pre-commit be invoked when you run `git commit`, and some files
+    may be modified by hooks. If so, please add these files and **commit again**.
+
 ``` bash
 cd my-package
+
+git add .
+git commit -m "Initial commit."
 
 git add .
 git commit -m "Initial commit."
@@ -179,12 +182,6 @@ repo name.
 
 You'll need a ssh key to push the repo. You can [Generate] a key or
 [Add] an existing one.
-
-???+ Warning
-
-    if you answered 'yes' to the question if install pre-commit hooks at last step,
-    then you should find pre-commit be invoked when you run `git commit`, and some files
-     may be modified by hooks. If so, please add these files and **commit again**.
 
 ### Check result
 
@@ -200,22 +197,28 @@ new artifact is published under the name `project_slug`.
 
 Documentation will be published and available at *https://{your_github_account}.github.io/{your_repo}* once:
 
-1. the commit is tagged, and the tag name is started with 'v' (lower case)
-2. build/testing executed by GitHub CI passed
+1. The commit is tagged, and the tag name is started with 'v' (lower case)
+2. Build/testing executed by GitHub CI passed
 
 If you'd like to see what it's look like now, you could run the following command:
 
-```
+``` bash
 poetry run mkdocs serve
 ```
 
 This will run the builtin development server for you to preview.
 
+To build locally under `site` folder:
+
+``` bash
+poetry run mkdocs build
+```
+
 ## Step 9. Make official release
 
-  After done with your phased development in a feature branch, make a pull request, following
-  instructions at [release checklist](pypi_release_checklist.md), trigger first official release and check
-  result at [PyPI].
+After done with your phased development in a feature branch, make a pull request, following
+instructions at [release checklist](pypi_release_checklist.md), trigger first official release and check
+result at [PyPI].
 
 
 [Edit this file]: https://github.com/cheeyeelim/cookiecutter-pypackage/blob/master/docs/tutorial.md
@@ -229,4 +232,4 @@ This will run the builtin development server for you to preview.
 [How to apply testpypi token]: https://test.pypi.org/manage/account/
 [How to apply pypi token]: https://pypi.org/manage/account/
 [How to apply personal token]: https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
-[install codecov app]: https://github.com/apps/codecov
+[Install codecov app]: https://github.com/apps/codecov

@@ -13,40 +13,62 @@ You better visit PyPI to make sure your package name is unused.
 
 2.  Commit the changelog changes:
 
-    > ``` bash
-    > git add CHANGELOG.md
-    > git commit -m "Changelog for upcoming release 0.1.1."
-    > ```
+``` bash
+git add CHANGELOG.md
+git commit -m "Changelog for upcoming release 0.1.1."
+```
 
 3.  Update version number and automatically create a commit, tag(can also be patch or major).
 
-    > ``` bash
-    > poetry run bump2version minor
-    > ```
+``` bash
+poetry run bump2version patch
+```
 
 4.  Run the tests locally for insurance:
 
-    > ``` bash
-    > poetry run tox
-    > ```
+``` bash
+poetry run tox
+```
 
 5.  Push these commits to master/main:
 
-    > ``` bash
-    > git push
-    > ```
+``` bash
+git push
+```
 
-    Before proceeding to the next step, please check workflows triggered by this push have passed.
+Before proceeding to the next step, please check workflows triggered by this push have passed.
 
 6.  Push the tags(created by bump2version) to master/main, creating the new release on both GitHub and PyPI:
 
-    > ``` bash
-    > git push --tags
-    > ```
+``` bash
+git push --tags
+```
 
-    Only tag name started with 'v'(lower case) will leverage GitHub release workflow.
+Only tag name started with 'v'(lower case) will leverage GitHub release workflow.
 
-7.  Check the PyPI listing page to make sure that the README, release
+7. If there is a need to manually create tag or re-push under the same tag:
+
+This is delete and re-create the tag locally.
+
+``` bash
+git tag -d {tagname}
+git tag {tagname}
+```
+
+Then follow by deleting and re-creating the tag remotely.
+
+``` bash
+git push origin :{tagname}
+git push origin {tagname}
+```
+
+Finally update local repository with the updated tag
+
+``` bash
+git fetch --tags
+```
+
+8.  Check the PyPI listing page to make sure that the README, release
     notes, and roadmap display properly. If tox test passed, this should be ok, since
     we have already run twine check during tox test.
 
