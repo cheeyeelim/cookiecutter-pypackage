@@ -75,6 +75,7 @@ Also be noticed that there's `pyproject.toml` in this folder. This is the main c
 In this step we will install Poetry if you are not using it, since the whole project is managed by it.
 
 ```bash
+cd my_package
 pip install poetry
 ```
 
@@ -165,8 +166,6 @@ code:
     may be modified by hooks. If so, please add these files and **commit again**.
 
 ``` bash
-cd my-package
-
 git add .
 git commit -m "Initial commit."
 
