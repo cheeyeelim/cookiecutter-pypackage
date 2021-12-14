@@ -685,7 +685,9 @@ you don't have one, please follow the links to apply one before you get started 
 <p>Also be noticed that there's <code>pyproject.toml</code> in this folder. This is the main configuration file of our project.</p>
 <h3 id="step-3-install-poetry">Step 3: Install Poetry<a class="headerlink" href="#step-3-install-poetry" title="Permanent link">&para;</a></h3>
 <p>In this step we will install Poetry if you are not using it, since the whole project is managed by it.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip install poetry
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> my_package
+pip install poetry
 </code></pre></div>
 </td></tr></table>
 <p>In addition, Poetry provides a <a href="https://python-poetry.org/docs/#installation">custom installer</a> that will install
@@ -758,18 +760,14 @@ code:</p>
 Then pre-commit be invoked when you run <code>git commit</code>, and some files
 may be modified by hooks. If so, please add these files and <strong>commit again</strong>.</p>
 </details>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">cd</span> my-package
-
-git add .
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git add .
 git commit -m <span class="s2">&quot;Initial commit.&quot;</span>
 
 git add .
