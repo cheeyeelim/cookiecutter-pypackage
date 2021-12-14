@@ -32,7 +32,6 @@ def inside_dir(dirpath):
 
 def execute(command: List[str], dirpath: str, timeout=30, supress_warning=True):
     """Run command inside given directory and returns output
-
     if there's stderr, then it may raise exception according to supress_warning
     """
     with inside_dir(dirpath):
@@ -144,4 +143,3 @@ def test_bake_selecting_cli(cookies, args):
         assert not (result.project_path / "cli.py").exists()
 
         assert not "[tool.poetry.scripts]" in (result.project_path / _PYPROJECT_FILE).read_text()
-
