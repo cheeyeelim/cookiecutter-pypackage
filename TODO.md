@@ -4,7 +4,7 @@
 
 1. [DONE] Add `tox-conda` to allow discovery of python versions installed under conda (both project and template)
 2. [DONE] Add doc revision date with `mkdocs-git-revision-date-plugin` (both project and template)
-3. Add test for `poetry install -E doc -E dev -E test` and `poetry run tox` on project template to ensure no library version conflict
+3. [DONE] Add test for `poetry install -E doc -E dev -E test` and `poetry run tox` on project template to ensure no library version conflict
 4. Add `codecov` tag on README.md
 
 

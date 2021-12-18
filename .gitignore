@@ -104,6 +104,6 @@ cookiecutter-pypackage-env/
 site/
 
 # pytest-cookies
-tests/tmp_bake/
+tmp_bake/
 
 venv/

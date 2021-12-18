@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * urllib3 - removed certain security vulnerabilities
 * Replaced testing with mike, rather than mkdocs
 * Updated tests to remove warnings from `pytest-cookies`
+* Added tests to ensure template get built correctly
 * Updated and cleaned up documentations
 * Removed optionality for `mypy` and `pre-commit`
 * Removed support for py36
