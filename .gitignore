@@ -106,4 +106,5 @@ site/
 # pytest-cookies
 tmp_bake/
 
-venv/
+# local venv from poetry
+.venv/

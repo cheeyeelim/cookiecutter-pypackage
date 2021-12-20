@@ -48,7 +48,7 @@ If you are proposing a new feature:
 ## Get Started!
 
 Ready to contribute? Here's how to set up `cookiecutter-pypackage` for local
-development. Please note this documentation assumes you already have `Python` 
+development. Please note this documentation assumes you already have `Python`
 and `Git` installed and ready to go.
 
 ### Step 1: Fork the `cookiecutter-pypackage` repo on GitHub
@@ -62,7 +62,7 @@ git clone git@github.com:YOUR_NAME/cookiecutter-pypackage.git
 
 ### Step 3: Use poetry to manage environments
 
-This will install latest version of poetry and install required 
+This will install latest version of poetry and install required
 packages in specified virtual environments.
 
 ``` bash
@@ -83,7 +83,7 @@ Now you can make your changes locally.
 
 ### Step 5: Test the changes using tox
 
-`tox` will run tests across different versions of Python 
+`tox` will run tests across different versions of Python
 and check to ensure documentation building works.
 
 ``` bash
@@ -92,7 +92,7 @@ poetry run tox
 
 ### Step 6: Add a new test to the existing test suite
 
-If your contribution is a bug fix or new feature, you may want to add a test 
+If your contribution is a bug fix or new feature, you may want to add a test
 to the existing test suite. See section Add a New Test below for details.
 
 ### Step 7: Commit your changes and push your branch to GitHub
@@ -116,7 +116,7 @@ Before you submit a pull request, check that it meets these guidelines:
    new functionality into a function with a docstring, and add the feature to
    the list in README.rst.
 
-3. The pull request should work for Python 3.6, 3.7, 3.8 and 3.9.
+3. The pull request should work for Python 3.7, 3.8 and 3.9.
 
 
 ## Add a New Test
