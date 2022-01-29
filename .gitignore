@@ -108,3 +108,6 @@ tmp_bake/
 
 # local venv from poetry
 .venv/
+
+# dev files
+run_dev.sh
