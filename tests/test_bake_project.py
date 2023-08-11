@@ -18,9 +18,16 @@ _LICENSE_FILE = "LICENSE"
 
 @contextmanager
 def inside_dir(dirpath):
-    """
-    Execute code from inside the given directory
-    :param dirpath: String, path of the directory the command is being run.
+    """Execute code from inside the given directory.
+
+    Parameters
+    ----------
+    dirpath : str
+        Path of the directory the command is being run.
+
+    Returns
+    -------
+    None
     """
     old_path = os.getcwd()
     try:
@@ -31,8 +38,26 @@ def inside_dir(dirpath):
 
 
 def execute(command: List[str], dirpath: str, timeout=30, supress_warning=True):
-    """Run command inside given directory and returns output
-    if there's stderr, then it may raise exception according to supress_warning
+    """Run command inside given directory and returns output.
+
+    If there's stderr, then it may raise exception according to supress_warning.
+
+    Parameters
+    ----------
+    command : list[str]
+        List of commands to be run.
+        E.g. ["python main.py --help"]
+    dirpath : str
+        Path of the directory the command is being run.
+    timeout : int
+        Seconds to command timeout.
+    supress_warning : bool
+        Whether to suppress warning.
+
+    Returns
+    -------
+    out : string
+        Output from standard out.
     """
     with inside_dir(dirpath):
         proc = subprocess.Popen(
@@ -42,8 +67,8 @@ def execute(command: List[str], dirpath: str, timeout=30, supress_warning=True):
         )
 
     out, err = proc.communicate(timeout=timeout)
-    out = out.decode('utf-8')
-    err = err.decode('utf-8')
+    out = out.decode("utf-8")
+    err = err.decode("utf-8")
 
     if err and not supress_warning:
         raise RuntimeError(err)
@@ -77,8 +102,8 @@ def test_bake_with_defaults(cookies):
     assert (result.project_path / ".github").exists()
 
     # Test license creation
-    assert 'MIT ' in (result.project_path / _LICENSE_FILE).read_text()
-    assert 'MIT' in (result.project_path / _PYPROJECT_FILE).read_text()
+    assert "MIT " in (result.project_path / _LICENSE_FILE).read_text()
+    assert "MIT" in (result.project_path / _PYPROJECT_FILE).read_text()
 
     # Test lint rule
     flake8_conf_file_path = (result.project_path / "setup.cfg")
@@ -88,58 +113,29 @@ def test_bake_with_defaults(cookies):
     mkdocs_yml = result.project_path / "mkdocs.yml"
     with open(mkdocs_yml, "r") as f:
         lines = f.readlines()
-        assert '  - Home: index.md\n' in lines
+        assert "  - Home: index.md\n" in lines
 
 
 @pytest.mark.parametrize("license_info", [
-    ('MIT', 'MIT '),
-    ('BSD-3-Clause', 'Redistributions of source code must retain the ' +
-     'above copyright notice, this'),
-    ('ISC', 'ISC License'),
-    ('Apache-2.0', 'Licensed under the Apache License, Version 2.0'),
-    ('GPL-3.0-only', 'GNU GENERAL PUBLIC LICENSE'),
-    ('Not open source', ''),
+    ("MIT", "MIT "),
+    ("BSD-3-Clause", "Redistributions of source code must retain the " +
+     "above copyright notice, this"),
+    ("ISC", "ISC License"),
+    ("Apache-2.0", "Licensed under the Apache License, Version 2.0"),
+    ("GPL-3.0-only", "GNU GENERAL PUBLIC LICENSE"),
+    ("Not open source", ""),
 ])
 def test_bake_selecting_license(cookies, license_info):
     license, target_string = license_info
 
-    result = cookies.bake(extra_context={'open_source_license': license})
+    result = cookies.bake(extra_context={"open_source_license": license})
 
     if license == "Not open source":
         assert (result.project_path / _PYPROJECT_FILE).exists()
         assert not (result.project_path / _LICENSE_FILE).exists()
 
-        assert 'License' not in (result.project_path / "README.md").read_text()
-        assert 'license' not in (result.project_path / _PYPROJECT_FILE).read_text()
+        assert "License" not in (result.project_path / "README.md").read_text()
+        assert "license" not in (result.project_path / _PYPROJECT_FILE).read_text()
     else:
         assert target_string in (result.project_path / _LICENSE_FILE).read_text()
         assert license in (result.project_path / _PYPROJECT_FILE).read_text()
-
-
-@pytest.mark.parametrize("args", [
-    ({'command_line_interface': "No command-line interface"}, False),
-    ({'command_line_interface': 'click'}, True),
-])
-def test_bake_selecting_cli(cookies, args):
-    context, cli_present = args
-
-    result = cookies.bake(extra_context=context)
-
-    if cli_present:
-        assert (result.project_path / _PYPROJECT_FILE).exists()
-        assert (result.project_path / "python_boilerplate/cli.py").exists()
-
-        assert "[tool.poetry.scripts]" in (result.project_path / _PYPROJECT_FILE).read_text()
-
-        cli_path = result.project_path / "python_boilerplate/cli.py"
-
-        cli_out = execute([sys.executable, str(cli_path)], str(result.project_path))
-        assert result.project_path.name in cli_out
-
-        cli_out = execute([sys.executable, str(cli_path), "--help"], str(result.project_path))
-        assert 'Show this message and exit.' in cli_out
-    else:
-        assert (result.project_path / _PYPROJECT_FILE).exists()
-        assert not (result.project_path / "cli.py").exists()
-
-        assert not "[tool.poetry.scripts]" in (result.project_path / _PYPROJECT_FILE).read_text()

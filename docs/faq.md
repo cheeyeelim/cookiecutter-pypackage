@@ -62,16 +62,6 @@
 
     docstrings_style
     one of `google, numpy, pep257`. It's required by flake8-docstrings.
-
-    ## Options
-
-    The following package configuration options set up different features
-    for your project.
-
-    command_line_interface
-    Whether to create a console script using Python Click. Console script
-    entry point will match the project_slug. Options: \['click', "No
-    command-line interface"\]
     ```
 
     except above settings, for CI/CD, you'll also need configure gitub repsitory secrets
