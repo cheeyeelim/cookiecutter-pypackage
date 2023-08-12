@@ -16,25 +16,24 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   release:
-    name: Publish documentation
+    name: Publish Documentation
     runs-on: ubuntu-20.04
-
-    strategy:
-      matrix:
-        python-versions: ["3.8"]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - uses: actions/setup-python@v2
+      - name: Checkout repo
+        uses: actions/checkout@v3
         with:
-          python-version: ${{ matrix.python-versions }}
+          fetch-depth: 0 # fetch all commits/branches. required for mike
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          python -m pip install --upgrade pip setuptools wheel
           pip install poetry
 
       - name: Set release notes tag
@@ -47,11 +46,10 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-      - name: build documentation
+      - name: Build documentation
         env:
           GOOGLE_ANALYTICS_TAG: ${{ secrets.GOOGLE_ANALYTICS_TAG }}
         run: |
           poetry install -E dev
-          git fetch origin gh-pages --depth=1
-          poetry run mike deploy --push --update-aliases ${RELEASE_TAG_VERSION} latest
+          poetry run mike deploy --push --force --ignore --update-aliases ${RELEASE_TAG_VERSION} latest
           poetry run mike set-default --push latest

@@ -9,10 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Removed support for `python 3.7` and `3.8` and added support for `python 3.10`
 * [TODO] Removed `tox-conda`
+* Added `main.py`, `pipeline.py` and component style code structuring to the template
 * Added `ipykernel` and `nbstripout` for development in Jupyter notebook
 * Added `hypothesis` and `pytest-timeout` for enhanced unit testing with synthetic data
 * [TODO] Replaced `click` with `hydra` for command line interface and configuration management
-* Update most key packages to latest versions
+* Updated GitHub workflows : new versions, added trusted publishing and removed unneeded tokens
+* Update most key Python packages to latest versions
 * Fixed minor bugs : error in `pre-commit-config.yaml`
 
 ## [1.1.2] - 2021-12-12
